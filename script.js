@@ -18,6 +18,9 @@ class SaltShakerApp {
         
         this.overlayImage = null;
         this.pfpImage = null;
+        this.currentOverlay = 'overlay'; // 'overlay' or 'saltbath'
+        this.overlayBtn = document.getElementById('overlayBtn');
+        this.saltBathBtn = document.getElementById('saltBathBtn');
         
         this.init();
     }
@@ -74,6 +77,15 @@ class SaltShakerApp {
         this.downloadBtn.addEventListener('click', () => {
             this.downloadImage();
         });
+        
+        // Overlay buttons
+        this.overlayBtn.addEventListener('click', () => {
+            this.selectOverlay('overlay');
+        });
+        
+        this.saltBathBtn.addEventListener('click', () => {
+            this.selectOverlay('saltbath');
+        });
     }
     
     loadOverlayImage() {
@@ -85,7 +97,23 @@ class SaltShakerApp {
         overlay.onerror = () => {
             console.warn('Overlay image not found, continuing without overlay');
         };
-        overlay.src = 'overlay.png';
+        overlay.src = this.currentOverlay === 'overlay' ? 'overlay.png' : 'SALT BATH.png';
+    }
+    
+    selectOverlay(overlayType) {
+        this.currentOverlay = overlayType;
+        this.updateButtonStates();
+        this.loadOverlayImage();
+    }
+    
+    updateButtonStates() {
+        if (this.currentOverlay === 'overlay') {
+            this.overlayBtn.classList.add('active');
+            this.saltBathBtn.classList.remove('active');
+        } else {
+            this.overlayBtn.classList.remove('active');
+            this.saltBathBtn.classList.add('active');
+        }
     }
     
     drawInitialCanvas() {

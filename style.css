@@ -175,6 +175,49 @@ h2 {
     pointer-events: none;
 }
 
+.overlay-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0px 0 10px 0;
+    transform: translateY(-10px);
+}
+
+.overlay-toggle-btn {
+    background-color: #333;
+    color: #59e0dc;
+    border: 3px solid #59e0dc;
+    padding: 8px 12px;
+    font-size: 0.6rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    text-shadow: 1px 1px 0px #000;
+    box-shadow: 2px 2px 0px #000;
+    transition: all 0.1s ease;
+}
+
+.overlay-toggle-btn.active {
+    background-color: #59e0dc;
+    color: #333;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.overlay-toggle-btn:hover {
+    background-color: #59e0dc;
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px #000;
+}
+
+.overlay-toggle-btn:active {
+    transform: translateY(2px);
+    box-shadow: 1px 1px 0px #000;
+}
+
 .controls {
     display: flex;
     gap: 30px;
@@ -213,6 +256,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateY(70px);
 }
 
 .copy-text {

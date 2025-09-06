@@ -36,3 +36,5 @@ Please upload these three image files to the project directory:
 - Right panel text: Teal (#59e0dc)
 - Buttons: Dark gray background with pink text
 - Canvas background: Minty gray (#b9c6bd)
+
+
